@@ -1,3 +1,53 @@
-<script type='text/x-handlebars-template' id=''>
+<script type='text/x-handlebars-template' id='tiles_manager_structure'>
+    <div class='row'>
+        <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12'>
+            <div id='tiles_container'></div>
+        </div>
+    </div>
+</script>
 
+<script type='text/x-handlebars-template' id='main_tile_structure'>
+    <div class='row'>
+        <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12'>
+            <div class='faos-analysis-card ghg-main-tile' id='{{main_tile_id}}'>
+                <div class='faos-analysis-card-top'>
+                    <img src='{{tile_img}}' class='faos-analysis-tile-img'>
+                </div>
+                <div class='faos-analysis-card-bottom'>
+                    <h2>
+                        {{tile_title}}
+                    </h2>
+                    <p class='ghg-text'>
+                        {{tile_description}}
+                    </p>
+                    <p>
+                        {{tile_button}}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script type='text/x-handlebars-template' id='module_tile_structure'>
+    <div class='row'>
+        <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12'>
+            <div class='faos-analysis-module' id='{{module_tile_id}}'>
+                <div class='faos-analysis-module-left'>
+                    <img src='{{tile_img}}' class='faos-analysis-tile-img'>
+                </div>
+                <div class='faos-analysis-module-right'>
+                    <h2>
+                        {{tile_title}}
+                    </h2>
+                    <p class='ghg-text'>
+                        {{tile_description}}
+                    </p>
+                    <p>
+                        {{tile_button}}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 </script>
