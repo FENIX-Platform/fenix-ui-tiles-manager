@@ -12,7 +12,8 @@ define(['require',
     function TILES_MANAGER() {
 
         this.CONFIG = {
-            lang: 'E',
+            lang: 'en',
+            tile_ids: [],
             accordion_id: 'accordion_id',
             placeholder_id: 'placeholder',
             url_images: Require.toUrl('FENIX_UI_TILES_MANAGER_IMAGES'),
@@ -27,7 +28,7 @@ define(['require',
         this.CONFIG = $.extend(true, {}, this.CONFIG, config);
 
         /* Fix the language, if needed. */
-        this.CONFIG.lang = this.CONFIG.lang != null ? this.CONFIG.lang : 'E';
+        this.CONFIG.lang = this.CONFIG.lang != null ? this.CONFIG.lang : 'en';
 
         /* Cast the tiles configuration, if needed. */
         this.CONFIG.tiles_configuration = tiles_configuration;
@@ -68,11 +69,11 @@ define(['require',
             var section_code = this.CONFIG.tiles_configuration[tile_code].tiles[i];
             var tiles_placeholder = section_code + '_tiles_placeholder';
             var dynamic_data = {
-                element_id: this.CONFIG.tiles_configuration[section_code].id,
+                tiles_placeholder: tiles_placeholder,
                 accordion_id: this.CONFIG.accordion_id,
                 element_content: section_code + '_content',
-                element_label: this.show_label(this.CONFIG.tiles_configuration[section_code].tile_title),
-                tiles_placeholder: tiles_placeholder
+                element_id: this.CONFIG.tiles_configuration[section_code].id,
+                element_label: this.show_label(this.CONFIG.tiles_configuration[section_code].tile_title)
             };
             var html = template(dynamic_data);
             $('#' + this.CONFIG.accordion_id).append(html);
@@ -95,13 +96,21 @@ define(['require',
         var template = Handlebars.compile(source);
         var dynamic_data = {
             tile_id: this.CONFIG.tiles_configuration[tile_code].id,
-            url_image: this.CONFIG.url_images + this.CONFIG.lang + '/' + this.CONFIG.tiles_configuration[tile_code].img,
+            tile_button_id: this.CONFIG.tiles_configuration[tile_code].id + '_button' ,
             tile_title: this.show_label(this.CONFIG.tiles_configuration[tile_code].tile_title),
+            tile_button: this.show_label(this.CONFIG.tiles_configuration[tile_code].tile_button),
             tile_description: this.show_label(this.CONFIG.tiles_configuration[tile_code].tile_description),
-            tile_button: this.show_label(this.CONFIG.tiles_configuration[tile_code].tile_button)
+            url_image: this.CONFIG.url_images + this.CONFIG.lang + '/' + this.CONFIG.tiles_configuration[tile_code].img
         };
         var html = template(dynamic_data);
         $('#' + tiles_placeholder).append(html);
+
+        /* Register tile. */
+        this.CONFIG.tile_ids.push({
+            id: dynamic_data.tile_id,
+            button_id: dynamic_data.tile_button_id,
+            require_module: this.CONFIG.tiles_configuration[tile_code].require
+        });
 
     };
 
