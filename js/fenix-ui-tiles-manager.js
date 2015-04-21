@@ -1,13 +1,11 @@
-define([
-        'require',
-    'jquery',
+define(['require',
+        'jquery',
         'handlebars',
         'text!fenix_ui_tiles_manager/html/templates.html',
         'i18n!fenix_ui_tiles_manager/nls/translate',
         'text!fenix_ui_tiles_manager/config/tiles_configuration.json',
-        'FENIX_UI_PATHS',
         'bootstrap',
-        'sweetAlert'], function (Require, $, Handlebars, templates, translate, tiles_configuration, FENIX_UI_PATHS) {
+        'sweetAlert'], function (Require, $, Handlebars, templates, translate, tiles_configuration) {
 
     'use strict';
 
@@ -15,8 +13,10 @@ define([
 
         this.CONFIG = {
             lang: 'E',
+            accordion_id: 'accordion_id',
             placeholder_id: 'placeholder',
-            url_images: Require.toUrl('FENIX_UI_TILES_MANAGER_IMAGES')
+            url_images: Require.toUrl('FENIX_UI_TILES_MANAGER_IMAGES'),
+            accordion_elements_placeholder: 'accordion_elements_placeholder'
         };
 
     }
@@ -35,110 +35,78 @@ define([
             this.CONFIG.tiles_configuration = $.parseJSON(this.CONFIG.tiles_configuration);
 
         /* Load template. */
-        //var source = $(templates).filter('#tiles_manager_structure').html();
-        //var template = Handlebars.compile(source);
-        //var dynamic_data = {};
-        //var html = template(dynamic_data);
-        //$('#' + this.CONFIG.placeholder_id).html(html);
+        var source = $(templates).filter('#tiles_manager_structure').html();
+        var template = Handlebars.compile(source);
+        var dynamic_data = {
+            accordion_id: this.CONFIG.accordion_id,
+            accordion_elements_placeholder: this.CONFIG.accordion_elements_placeholder
+        };
+        var html = template(dynamic_data);
+        $('#' + this.CONFIG.placeholder_id).html(html);
 
-        /* Load tiles. */
-        this.show_tiles();
+        /* Create accordion elements. */
+        this.create_accordion_elements();
 
     };
 
-    TILES_MANAGER.prototype.show_tiles = function(tile_code) {
+    TILES_MANAGER.prototype.create_accordion_elements = function(tile_code) {
 
         /* Clear the presentation area. */
-        $('#tiles_container').empty();
+        $('#' + this.CONFIG.accordion_elements_placeholder).empty();
 
         /* Fix the tile code, if needed. */
         tile_code = tile_code == null ? 'main' : tile_code;
 
+        /* Load template. */
+        var source = $(templates).filter('#accordion_element').html();
+        var template = Handlebars.compile(source);
+
         /* Iterate over sub modules. */
         for (var i = 0 ; i < this.CONFIG.tiles_configuration[tile_code].tiles.length ; i++) {
 
-            /* Read sub-module code. */
-            var sub_tile_code = this.CONFIG.tiles_configuration[tile_code].tiles[i];
+            /* Load section's configuration. */
+            var section_code = this.CONFIG.tiles_configuration[tile_code].tiles[i];
+            var tiles_placeholder = section_code + '_tiles_placeholder';
+            var dynamic_data = {
+                element_id: this.CONFIG.tiles_configuration[section_code].id,
+                accordion_id: this.CONFIG.accordion_id,
+                element_content: section_code + '_content',
+                element_label: this.show_label(this.CONFIG.tiles_configuration[section_code].tile_title),
+                tiles_placeholder: tiles_placeholder
+            };
+            var html = template(dynamic_data);
+            $('#' + this.CONFIG.accordion_id).append(html);
 
-            /* Render the sub-module. */
-            switch (this.CONFIG.tiles_configuration[sub_tile_code]['type']) {
-                case 'section':
-                    this.show_section(sub_tile_code);
-                    break;
-                case 'module':
-                    this.show_module(tile_code);
-                    break;
-            }
+            /* Create tiles. */
+            for (var j = 0 ; j < this.CONFIG.tiles_configuration[section_code].tiles.length ; j++)
+                this.create_tile(tiles_placeholder, this.CONFIG.tiles_configuration[section_code].tiles[j]);
 
         }
 
+        /* Expand GHG module. */
+        $('#ghg_content').addClass('in');
 
     };
 
-    TILES_MANAGER.prototype.show_section = function(tile_code) {
+    TILES_MANAGER.prototype.create_tile = function(tiles_placeholder, tile_code) {
 
-        /* This... */
-        var _this = this;
-
-        /* Tile object. */
-        var tile = this.CONFIG.tiles_configuration[tile_code];
-
-        /* Define template variables. */
-        var source = $(templates).filter('#main_tile_structure').html();
+        /* Load template. */
+        var source = $(templates).filter('#tile_structure').html();
         var template = Handlebars.compile(source);
         var dynamic_data = {
-            main_tile_id: tile.id,
-            module_tile_id: tile.id,
-            tile_img: this.CONFIG.url_images + tile.img,
-            tile_title: this.show_label(tile.tile_title),
-            tile_description: this.show_label(tile.tile_description),
-            tile_button: this.show_label(tile.tile_button)
+            tile_id: this.CONFIG.tiles_configuration[tile_code].id,
+            url_image: this.CONFIG.url_images + this.CONFIG.lang + '/' + this.CONFIG.tiles_configuration[tile_code].img,
+            tile_title: this.show_label(this.CONFIG.tiles_configuration[tile_code].tile_title),
+            tile_description: this.show_label(this.CONFIG.tiles_configuration[tile_code].tile_description),
+            tile_button: this.show_label(this.CONFIG.tiles_configuration[tile_code].tile_button)
         };
         var html = template(dynamic_data);
-
-        /* Append the tile to the interface. */
-        $('#' + this.CONFIG.placeholder_id).append(html);
-        //$('#' + this.CONFIG.placeholder_id).append(html);
-
-        $('#' + tile.id).click(function() {
-            _this.show_tiles(this.id);
-        });
+        $('#' + tiles_placeholder).append(html);
 
     };
 
     TILES_MANAGER.prototype.show_label = function(label_code) {
-        return translate[label_code] != null ? translate[label_code] : label_code;
-    };
-
-    TILES_MANAGER.prototype.show_module = function(tile_code) {
-
-        /* This... */
-        var _this = this;
-
-        /* Tile object. */
-        var tile = this.CONFIG.tiles_configuration[tile_code];
-
-        /* Define template variables. */
-        var source = $(templates).filter('#module_tile_structure').html();
-        var template = Handlebars.compile(source);
-        var dynamic_data = {
-            main_tile_id: tile.id,
-            module_tile_id: tile.id,
-            tile_img: this.CONFIG.url_images + this.CONFIG.lang + tile.img,
-            tile_title: tile.title,
-            tile_description: tile.description,
-            tile_button: tile.button
-        };
-        var html = template(dynamic_data);
-
-        /* Append the tile to the interface. */
-        //$('#tiles_container').append(html);
-        $('#' + this.CONFIG.placeholder_id).append(html);
-
-        $('#' + tile.id).click(function() {
-            _this.show_tiles(this.id);
-        });
-
+        return translate[label_code] != undefined ? translate[label_code] : label_code;
     };
 
     return TILES_MANAGER;

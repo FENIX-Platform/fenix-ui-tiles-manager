@@ -1,3 +1,21 @@
-
+.faostat-analysis-card {
+  display: inline-block;
+  float: left;
+  padding: 10px; }
+  .faostat-analysis-card .faostat-analysis-card-top {
+    background-color: #dddddd;
+    padding: 10px;
+    cursor: pointer; }
+    .faostat-analysis-card .faostat-analysis-card-top .faostat-analysis-tile-img {
+      width: 100%; }
+  .faostat-analysis-card .faostat-analysis-card-bottom {
+    background-color: white;
+    padding: 10px;
+    cursor: pointer; }
+    .faostat-analysis-card .faostat-analysis-card-bottom h2 {
+      margin: 0;
+      font-size: 16px; }
+    .faostat-analysis-card .faostat-analysis-card-bottom p {
+      color: #aaa; }
 
 /*# sourceMappingURL=fenix-ui-tiles-manager.css.map */

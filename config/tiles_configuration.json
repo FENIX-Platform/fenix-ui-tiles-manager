@@ -26,12 +26,7 @@
       "type": "section",
       "img": "/ico-stats.svg",
       "label_code": "ghg",
-      "tiles": [
-         "ghg_overview",
-         "ghg_quality",
-         "ghg_indicators",
-         "ghg_data"
-      ],
+      "tiles": [],
       "tile_title": "std_title",
       "tile_description": "std_description",
       "tile_button": "std_button"

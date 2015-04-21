@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "",
-"sources": [],
+"mappings": "AAAA,sBAAuB;EACrB,OAAO,EAAE,YAAY;EACrB,KAAK,EAAE,IAAI;EACX,OAAO,EAAE,IAAI;EACb,iDAA2B;IACzB,gBAAgB,EAAE,OAAO;IACzB,OAAO,EAAE,IAAI;IACb,MAAM,EAAE,OAAO;IACf,4EAA2B;MACzB,KAAK,EAAE,IAAI;EAGf,oDAA8B;IAC5B,gBAAgB,EAAE,KAAK;IACvB,OAAO,EAAE,IAAI;IACb,MAAM,EAAE,OAAO;IACf,uDAAG;MACD,MAAM,EAAE,CAAC;MACT,SAAS,EAAE,IAAI;IAEjB,sDAAE;MACA,KAAK,EAAE,IAAI",
+"sources": ["fenix-ui-tiles-manager.scss"],
 "names": [],
 "file": "fenix-ui-tiles-manager.css"
 }
