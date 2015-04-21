@@ -2,7 +2,7 @@
    "main": {
       "type": "section",
       "tiles": [
-         "standardModule","ghg"
+         "statistical_analysis", "ghg"
       ]
    },
 
@@ -21,8 +21,8 @@
       "tile_description": "ghg_description",
       "tile_button": "ghg_button"
    },
-   "standardModule": {
-      "id": "standard-module",
+   "statistical_analysis": {
+      "id": "statistical_analysis",
       "type": "section",
       "img": "/ico-stats.svg",
       "label_code": "ghg",

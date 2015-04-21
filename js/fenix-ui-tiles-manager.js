@@ -16,6 +16,7 @@ define(['require',
             tile_ids: [],
             accordion_id: 'accordion_id',
             placeholder_id: 'placeholder',
+            section: 'statistical_analysis',
             url_images: Require.toUrl('FENIX_UI_TILES_MANAGER_IMAGES'),
             accordion_elements_placeholder: 'accordion_elements_placeholder'
         };
@@ -84,8 +85,8 @@ define(['require',
 
         }
 
-        /* Expand GHG module. */
-        $('#ghg_content').addClass('in');
+        /* Expand selected module. */
+        $('#' + this.CONFIG.section + '_content').addClass('in');
 
     };
 

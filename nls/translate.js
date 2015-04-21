@@ -5,7 +5,7 @@ define({
         ghg_title: 'Greenhouse Gases',
         ghg_description: 'Applications related to GHG',
         ghg_button: 'Go to the Greenhouse Gases Module',
-        std_title: 'Analysis',
+        std_title: 'Statistical Analysis Tools',
         std_description: 'Statistical functions and utilities',
         std_button: 'Go to the Analysis Module',
         ghg_overview: 'Regional Overview',
