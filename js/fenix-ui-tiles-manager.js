@@ -14,6 +14,7 @@ define(['require',
         this.CONFIG = {
             lang: 'en',
             tile_ids: [],
+            section_ids: [],
             tiles_configuration: null,
             accordion_id: 'accordion_id',
             placeholder_id: 'placeholder',
@@ -80,6 +81,12 @@ define(['require',
             var html = template(dynamic_data);
             $('#' + this.CONFIG.accordion_id).append(html);
 
+            /* Route on accordion element change. */
+            this.CONFIG.section_ids.push(dynamic_data.element_id);
+            $('#' + dynamic_data.element_id).click(function() {
+                amplify.publish(this.id, {id: this.id});
+            });
+
             /* Create tiles. */
             for (var j = 0 ; j < this.CONFIG.tiles_configuration[section_code].tiles.length ; j++)
                 this.create_tile(tiles_placeholder, this.CONFIG.tiles_configuration[section_code].tiles[j]);
@@ -136,6 +143,21 @@ define(['require',
         for (var i = 0 ; i < this.CONFIG.tile_ids.length ; i++) {
             amplify.subscribe(this.CONFIG.tile_ids[i], function (event_data) {
                 callback(event_data.section, event_data.module);
+            });
+        }
+    };
+
+    /**
+     * @param callback Function that takes the section code as parameter
+     *
+     * This function overrides the normal behaviour of the click on accordion
+     * sections by executing a callback function. Such a function takes the section code as parameter.
+     * A section is each element of the accordion.
+     */
+    TILES_MANAGER.prototype.onAccordionSectionClick = function(callback) {
+        for (var i = 0 ; i < this.CONFIG.section_ids.length ; i++) {
+            amplify.subscribe(this.CONFIG.section_ids[i], function (event_data) {
+                callback(event_data.id);
             });
         }
     };
