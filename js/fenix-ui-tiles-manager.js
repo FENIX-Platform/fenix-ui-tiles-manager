@@ -92,6 +92,9 @@ define(['require',
 
     TILES_MANAGER.prototype.create_tile = function(tiles_placeholder, tile_code) {
 
+        /* This... */
+        var _this = this;
+
         /* Load template. */
         var source = $(templates).filter('#tile_structure').html();
         var template = Handlebars.compile(source);
@@ -106,13 +109,34 @@ define(['require',
         var html = template(dynamic_data);
         $('#' + tiles_placeholder).append(html);
 
-        /* Register tile. */
-        this.CONFIG.tile_ids.push({
-            id: dynamic_data.tile_id,
-            button_id: dynamic_data.tile_button_id,
-            require_module: this.CONFIG.tiles_configuration[tile_code].require
+        /* Record tile. */
+        this.CONFIG.tile_ids.push(dynamic_data.tile_id);
+
+        /* Route module on tile click. */
+        $('#' + dynamic_data.tile_button_id).click(this.CONFIG.tiles_configuration[tile_code], function(e) {
+            var payload = {
+                section: _this.CONFIG.tiles_configuration[tile_code].section,
+                module: dynamic_data.tile_id
+            };
+            amplify.publish(dynamic_data.tile_id, payload);
         });
 
+    };
+
+    /**
+     * @param callback Function that takes two parameters: section and module
+     *
+     * This function overrides the normal behaviour of the click on tiles
+     * by executing a callback function. Such a function takes two parameters:
+     * section and module. A section is each element of the accordion, while
+     * a module is each tile within the section.
+     */
+    TILES_MANAGER.prototype.onTileClick = function(callback) {
+        for (var i = 0 ; i < this.CONFIG.tile_ids.length ; i++) {
+            amplify.subscribe(this.CONFIG.tile_ids[i], function (event_data) {
+                callback(event_data.section, event_data.module);
+            });
+        }
     };
 
     TILES_MANAGER.prototype.show_label = function(label_code) {
