@@ -13,7 +13,7 @@
       "label_code": "ghg",
       "tiles": [
          "ghg_overview",
-         "ghg_quality",
+         "ghg_qaqc",
          "ghg_indicators",
          "ghg_data"
       ],
@@ -43,8 +43,8 @@
       "tile_button": "ghg_overview_button",
       "require": "FAOSTAT_UI_ANALYSIS_GHG_OVERVIEW"
    },
-   "ghg_quality": {
-      "id": "quality",
+   "ghg_qaqc": {
+      "id": "qaqc",
       "section": "ghg",
       "type": "module",
       "img": "/quality.jpg",
