@@ -14,12 +14,18 @@ define(['require',
         this.CONFIG = {
             lang: 'en',
             tile_ids: [],
+            tiles_configuration: null,
             accordion_id: 'accordion_id',
             placeholder_id: 'placeholder',
             section: 'statistical_analysis',
             url_images: Require.toUrl('FENIX_UI_TILES_MANAGER_IMAGES'),
             accordion_elements_placeholder: 'accordion_elements_placeholder'
         };
+
+        /* Cast the tiles configuration, if needed. */
+        this.CONFIG.tiles_configuration = tiles_configuration;
+        if (typeof this.CONFIG.tiles_configuration == 'string')
+            this.CONFIG.tiles_configuration = $.parseJSON(this.CONFIG.tiles_configuration);
 
     }
 
@@ -30,11 +36,6 @@ define(['require',
 
         /* Fix the language, if needed. */
         this.CONFIG.lang = this.CONFIG.lang != null ? this.CONFIG.lang : 'en';
-
-        /* Cast the tiles configuration, if needed. */
-        this.CONFIG.tiles_configuration = tiles_configuration;
-        if (typeof this.CONFIG.tiles_configuration == 'string')
-            this.CONFIG.tiles_configuration = $.parseJSON(this.CONFIG.tiles_configuration);
 
         /* Load template. */
         var source = $(templates).filter('#tiles_manager_structure').html();
