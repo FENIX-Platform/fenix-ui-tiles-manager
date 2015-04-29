@@ -41,7 +41,7 @@
       "tile_title": "ghg_overview",
       "tile_description": "ghg_overview_description",
       "tile_button": "ghg_overview_button",
-      "require": "FAOSTAT_UI_ANALYSIS_GHG_OVERVIEW"
+      "require": "ANALYSIS_GHG_OVERVIEW"
    },
    "ghg_quality": {
       "id": "quality",
@@ -52,7 +52,7 @@
       "tile_title": "ghg_quality",
       "tile_description": "ghg_quality_description",
       "tile_button": "ghg_quality_button",
-      "require": "FAOSTAT_UI_ANALYSIS_GHG_QA_QC"
+      "require": "ANALYSIS_GHG_QA_QC"
    },
    "ghg_indicators": {
       "id": "indicators",
@@ -63,7 +63,7 @@
       "tile_title": "ghg_indicators",
       "tile_description": "ghg_indicators_description",
       "tile_button": "ghg_indicators_button",
-      "require": "FAOSTAT_UI_ANALYSIS_GHG_INDICATORS"
+      "require": "ANALYSIS_GHG_INDICATORS"
    },
    "ghg_data": {
       "id": "data",
