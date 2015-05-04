@@ -71,10 +71,10 @@
       "section": "ghg",
       "type": "module",
       "img": "/data.jpg",
-      "label_code": "ghg_data",
-      "tile_title": "ghg_data",
-      "tile_description": "ghg_data_description",
-      "tile_button": "ghg_data_button",
+      "label_code": "ghg_spatial_download",
+      "tile_title": "ghg_spatial_download",
+      "tile_description": "ghg_spatial_download_description",
+      "tile_button": "ghg_spatial_download_button",
       "require": "FAOSTAT-UI-ANALYSIS-GHG-SPATIAL-DOWNLOAD"
    },
    "ghg_spatial_browse": {
@@ -82,11 +82,11 @@
       "section": "ghg",
       "type": "module",
       "img": "/data.jpg",
-      "label_code": "ghg_data",
+      "label_code": "ghg_spatial_browse",
       "require": "GEOBRICKS-UI-DISTRIBUTION",
-      "tile_title": "ghg_data",
-      "tile_description": "ghg_data_description",
-      "tile_button": "ghg_data_button",
+      "tile_title": "ghg_spatial_browse",
+      "tile_description": "ghg_spatial_browse_description",
+      "tile_button": "ghg_spatial_browse_button",
       "module_config": {
          "url_geoserver_wms": "http://fenix.fao.org/demo/ghg/geoserver",
 
