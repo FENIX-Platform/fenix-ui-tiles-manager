@@ -111,7 +111,8 @@ define(['require',
             tile_id: this.CONFIG.tiles_configuration[tile_code].id,
             tile_button_id: this.CONFIG.tiles_configuration[tile_code].id + '_button' ,
             tile_title: this.show_label(this.CONFIG.tiles_configuration[tile_code].tile_title),
-            tile_button: this.show_label(this.CONFIG.tiles_configuration[tile_code].tile_button),
+            //tile_button: this.show_label(this.CONFIG.tiles_configuration[tile_code].tile_button),
+            tile_button: translate.module_button_label,
             tile_description: this.show_label(this.CONFIG.tiles_configuration[tile_code].tile_description),
             url_image: this.CONFIG.url_images + this.CONFIG.lang + '/' + this.CONFIG.tiles_configuration[tile_code].img
         };

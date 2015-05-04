@@ -1,5 +1,5 @@
 <script type='text/x-handlebars-template' id='tiles_manager_structure'>
-    <div class='container-fluid'>
+    <div class='container-fluid faostat-analysis-holder'>
         <div class='row'>
             <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12'>
                 <div class='panel-group' id='{{accordion_id}}' role='tablist' aria-multiselectable='true'>
@@ -11,13 +11,11 @@
 </script>
 
 <script type='text/x-handlebars-template' id='accordion_element'>
-    <div class='panel panel-default'>
+    <div class='obj-box panel panel-default'>
         <div class='panel-heading' role='tab' id='{{element_id}}'>
-            <h4 class='panel-title'>
                 <a data-toggle='collapse' data-parent='#{{accordion_id}}' href='#{{element_content}}' aria-expanded='true' aria-controls='{{element_content}}'>
                     {{element_label}}
                 </a>
-            </h4>
         </div>
         <div id='{{element_content}}' class='panel-collapse collapse' role='tabpanel' aria-labelledby='{{element_content}}'>
             <div class='panel-body'>
@@ -31,14 +29,14 @@
 
 <script type='text/x-handlebars-template' id='tile_structure'>
     <div class='row'>
-        <div class='col-xs-12 col-sm-3 col-md-3 col-lg-3'>
+        <div class='col-xs-2'>
             <div class='faostat-analysis-card ghg-main-tile' id='{{tile_id}}'>
                 <div class='faostat-analysis-card-top'>
                     <img src='{{url_image}}' class='img-responsive faostat-analysis-tile-img'>
                 </div>
             </div>
         </div>
-        <div class='col-xs-12 col-sm-9 col-md-9 col-lg-9'>
+        <div class='col-xs-10'>
             <div class='faostat-analysis-card-bottom'>
                 <h2>
                     {{tile_title}}
@@ -47,7 +45,7 @@
                     {{tile_description}}
                 </p>
                 <p>
-                    <button type='button' class='btn btn-default pull-right' id='{{tile_button_id}}'>
+                    <button type='button' class='btn btn-primary pull-right' id='{{tile_button_id}}'>
                         {{tile_button}}
                     </button>
                 </p>
