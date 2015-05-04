@@ -15,7 +15,8 @@
          "ghg_overview",
          "ghg_quality",
          "ghg_indicators",
-         "ghg_data"
+         "ghg_spatial_download",
+         "ghg_spatial_browse"
       ],
       "tile_title": "ghg_title",
       "tile_description": "ghg_description",
@@ -65,8 +66,8 @@
       "tile_button": "ghg_indicators_button",
       "require": "ANALYSIS_GHG_INDICATORS"
    },
-   "ghg_data": {
-      "id": "data",
+   "ghg_spatial_download": {
+      "id": "spatial_download",
       "section": "ghg",
       "type": "module",
       "img": "/data.jpg",
@@ -74,16 +75,31 @@
       "tile_title": "ghg_data",
       "tile_description": "ghg_data_description",
       "tile_button": "ghg_data_button",
+      "require": "FAOSTAT-UI-ANALYSIS-GHG-SPATIAL-DOWNLOAD"
+   },
+   "ghg_spatial_browse": {
+      "id": "spatial_browse",
+      "section": "ghg",
+      "type": "module",
+      "img": "/data.jpg",
+      "label_code": "ghg_data",
+      "require": "GEOBRICKS-UI-DISTRIBUTION",
+      "tile_title": "ghg_data",
+      "tile_description": "ghg_data_description",
+      "tile_button": "ghg_data_button",
       "module_config": {
-         "url_geoserver_wms": "http://fenix.fao.org/geoserver",
+         "url_geoserver_wms": "http://fenix.fao.org/demo/ghg/geoserver",
+
          "url_d3s_metadata_resource": "http://fenix.fao.org/d3s_dev/msd/resources/uid/{{UID}}",
          "url_d3s_resources_find": "http://fenix.fao.org/d3s_dev/msd/resources/find",
          "url_d3s_resources_find_order_by_date_parameters": "order=meContent.seCoverage.coverageTime.from:desc&logic=StandardFilter&dsd=true&full=true",
-         "url_spatialquery_db_spatial": "//168.202.28.214:7777/spatialquery/db/spatial/query/",
-         "url_spatialquery_db_spatial_bbox": "//168.202.28.214:7777/spatialquery/db/spatial/bbox/layer/country/adm0_code/{{CODES}}",
-         "url_distribution_raster_spatial_query": "//168.202.28.214:7777/distribution/raster/spatialquery",
+
+         "url_spatialquery_db_spatial": "//fenix.fao.org/geo/fenix/spatialquery/db/spatial/query/",
+         "url_spatialquery_db_spatial_bbox": "//fenix.fao.org/geo/fenix/spatialquery/db/spatial/bbox/layer/country/adm0_code/{{CODES}}",
+
+         "url_distribution_raster_spatial_query": "//fenix.fao.org/geo/fenix/distribution/raster/spatialquery",
+
          "url_css2sld": "//fenixapps2.fao.org/geoservices/CSS2SLD"
-      },
-      "require": "GEOBRICKS-UI-DISTRIBUTION"
+      }
    }
 }
