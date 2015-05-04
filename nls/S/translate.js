@@ -1,3 +1,25 @@
 define({
-
+    error: 'Tiles Manager Error',
+    button_label: 'Bulk Downloads',
+    ghg_title: 'Gases de Efecto Invernadero',
+    ghg_description: 'Applications related to GHG',
+    ghg_button: 'Go to the Greenhouse Gases Module',
+    std_title: 'Statistical Analysis Tools',
+    std_description: 'Statistical functions and utilities',
+    std_button: 'Go to the Analysis Module',
+    ghg_overview: 'Regional Overview',
+    ghg_overview_description: 'Regional overview description.',
+    ghg_overview_button: 'Go to the Regional Overview module',
+    ghg_quality: 'QA-QC and Verification',
+    ghg_quality_description: 'QA/QC description.',
+    ghg_quality_button: 'Go to the QA-QC and Verification module',
+    ghg_indicators: 'Indicators',
+    ghg_indicators_description: 'Indicators description.',
+    ghg_indicators_button: 'Go to the Indicators module',
+    ghg_spatial_download: 'Download Georeferenced Data',
+    ghg_spatial_download_description: 'Spatial download description.',
+    ghg_spatial_download_button: 'Go to the Download Georeferenced Data module',
+    ghg_spatial_browse: 'Browse Georeferenced Data',
+    ghg_spatial_browse_description: 'Georeferenced data description.',
+    ghg_spatial_browse_button: 'Go to the Browse Georeferenced Data module'
 });
