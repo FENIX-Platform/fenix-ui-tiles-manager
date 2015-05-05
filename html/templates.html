@@ -19,16 +19,14 @@
         </div>
         <div id='{{element_content}}' class='panel-collapse collapse' role='tabpanel' aria-labelledby='{{element_content}}'>
             <div class='panel-body'>
-                <div id='{{tiles_placeholder}}'>
-
-                </div>
+                <div id='{{tiles_placeholder}}'></div>
             </div>
         </div>
     </div>
 </script>
 
 <script type='text/x-handlebars-template' id='tile_structure'>
-    <div class='row'>
+    <div class='row' style="cursor: pointer" id="{{module_id}}">
         <div class='col-xs-2'>
             <div class='faostat-analysis-card ghg-main-tile' id='{{tile_id}}'>
                 <div class='faostat-analysis-card-top'>
