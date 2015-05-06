@@ -26,17 +26,17 @@
 </script>
 
 <script type='text/x-handlebars-template' id='tile_structure'>
-    <div class='row' style="cursor: pointer" id="{{module_id}}">
+    <div class='row'>
         <div class='col-xs-2'>
             <div class='faostat-analysis-card ghg-main-tile' id='{{tile_id}}'>
                 <div class='faostat-analysis-card-top'>
-                    <img src='{{url_image}}' class='img-responsive faostat-analysis-tile-img'>
+                    <img style='cursor: pointer' id='{{image_id}}' src='{{url_image}}' class='img-responsive faostat-analysis-tile-img'>
                 </div>
             </div>
         </div>
         <div class='col-xs-10'>
             <div class='faostat-analysis-card-bottom'>
-                <h2>
+                <h2 style='cursor: pointer' id='{{tile_title_id}}'>
                     {{tile_title}}
                 </h2>
                 <p class='ghg-text'>

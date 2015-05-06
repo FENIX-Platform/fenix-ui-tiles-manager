@@ -109,7 +109,8 @@ define(['require',
         var template = Handlebars.compile(source);
         var dynamic_data = {
             tile_id: this.CONFIG.tiles_configuration[tile_code].id,
-            module_id: tile_code,
+            tile_title_id: tile_code+ "_tile_title_id",
+            image_id: tile_code + "_image_id",
             tile_button_id: this.CONFIG.tiles_configuration[tile_code].id + '_button' ,
             tile_title: this.show_label(this.CONFIG.tiles_configuration[tile_code].tile_title),
             //tile_button: this.show_label(this.CONFIG.tiles_configuration[tile_code].tile_button),
@@ -124,7 +125,23 @@ define(['require',
         this.CONFIG.tile_ids.push(dynamic_data.tile_id);
 
         /* Route module on tile click. */
-        $('#' + dynamic_data.module_id).click(this.CONFIG.tiles_configuration[tile_code], function(e) {
+        $('#' + dynamic_data.image_id).click(this.CONFIG.tiles_configuration[tile_code], function(e) {
+            var payload = {
+                section: _this.CONFIG.tiles_configuration[tile_code].section,
+                module: dynamic_data.tile_id
+            };
+            amplify.publish(dynamic_data.tile_id, payload);
+        });
+
+        $('#' + dynamic_data.tile_title_id).click(this.CONFIG.tiles_configuration[tile_code], function(e) {
+            var payload = {
+                section: _this.CONFIG.tiles_configuration[tile_code].section,
+                module: dynamic_data.tile_id
+            };
+            amplify.publish(dynamic_data.tile_id, payload);
+        });
+
+        $('#' + dynamic_data.tile_button_id).click(this.CONFIG.tiles_configuration[tile_code], function(e) {
             var payload = {
                 section: _this.CONFIG.tiles_configuration[tile_code].section,
                 module: dynamic_data.tile_id
