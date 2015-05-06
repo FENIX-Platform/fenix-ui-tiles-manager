@@ -187,5 +187,4 @@ define(['require',
     };
 
     return TILES_MANAGER;
-
 });
