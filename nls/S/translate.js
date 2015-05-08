@@ -1,5 +1,6 @@
 define({
     error: 'Error gestor mosaicos',
+    module_button_label: 'Ir al módulo',
     button_label: 'Descarga de grandes cantidades de datos',
     ghg_title: 'Gases de efecto invernadero',
     ghg_description: 'Aplicaciones relacionadas con GEI',

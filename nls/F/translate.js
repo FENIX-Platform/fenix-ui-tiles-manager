@@ -1,5 +1,6 @@
 define({
     error: 'Tiles Manager Error',
+    module_button_label: 'Aller au module',
     button_label: 'Téléchargement en gros',
     ghg_title: 'Gaz à effet de serre',
     ghg_description: 'Applications liées à GES',
