@@ -2,7 +2,7 @@ define({
     error: 'Error gestor mosaicos',
     module_button_label: 'Ir al módulo',
     button_label: 'Descarga de grandes cantidades de datos',
-    ghg_title: 'Gases de efecto invernadero',
+    ghg_title: 'Herramientas de análisis de emisiones',
     ghg_description: 'Aplicaciones relacionadas con GEI',
     ghg_button: 'Ir al módulo de gases de efecto invernadero',
     std_title: 'Herramientas de análisis estadísticos',

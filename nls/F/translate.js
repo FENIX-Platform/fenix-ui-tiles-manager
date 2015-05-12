@@ -2,7 +2,7 @@ define({
     error: 'Tiles Manager Error',
     module_button_label: 'Aller au module',
     button_label: 'Téléchargement en gros',
-    ghg_title: 'Gaz à effet de serre',
+    ghg_title: 'Outils d\'analyse de émissions',
     ghg_description: 'Applications liées à GES',
     ghg_button: 'Aller au module de gaz à effet de serre',
     std_title: 'Outils d\'analyse statistique',

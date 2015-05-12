@@ -3,7 +3,7 @@ define({
         error: 'Tiles Manager Error',
         button_label: 'Bulk Downloads',
         module_button_label: 'Go to the module',
-        ghg_title: 'Greenhouse Gases',
+        ghg_title: 'Emissions Analysis Tool',
         ghg_description: 'Applications related to GHG',
         ghg_button: 'Go to the Greenhouse Gases Module',
         std_title: 'Statistical Analysis Tools',
