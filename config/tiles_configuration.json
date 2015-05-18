@@ -53,7 +53,7 @@
       "tile_title": "ghg_quality",
       "tile_description": "ghg_quality_description",
       "tile_button": "ghg_quality_button",
-      "require": "ANALYSIS_GHG_QA_QC"
+      "require": "FAOSTAT_UI_ANALYSIS_GHG_QA_QC"
    },
    "ghg_indicators": {
       "id": "indicators",

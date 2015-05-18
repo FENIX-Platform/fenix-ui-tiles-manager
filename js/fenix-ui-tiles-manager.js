@@ -1,5 +1,4 @@
 define(['require',
-        //'jquery',
         'handlebars',
         'text!fenix_ui_tiles_manager/html/templates.html',
         'i18n!fenix_ui_tiles_manager/nls/translate',
@@ -113,7 +112,6 @@ define(['require',
             image_id: tile_code + "_image_id",
             tile_button_id: this.CONFIG.tiles_configuration[tile_code].id + '_button' ,
             tile_title: this.show_label(this.CONFIG.tiles_configuration[tile_code].tile_title),
-            //tile_button: this.show_label(this.CONFIG.tiles_configuration[tile_code].tile_button),
             tile_button: translate.module_button_label,
             tile_description: this.show_label(this.CONFIG.tiles_configuration[tile_code].tile_description),
             url_image: this.CONFIG.url_images + this.CONFIG.lang + '/' + this.CONFIG.tiles_configuration[tile_code].img
