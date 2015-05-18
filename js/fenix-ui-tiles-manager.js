@@ -1,11 +1,12 @@
 define(['require',
+        'jquery',
         'handlebars',
         'text!fenix_ui_tiles_manager/html/templates.html',
         'i18n!fenix_ui_tiles_manager/nls/translate',
         'text!fenix_ui_tiles_manager/config/tiles_configuration.json',
         'bootstrap',
         'sweetAlert',
-        'amplify'], function (Require, Handlebars, templates, translate, tiles_configuration) {
+        'amplify'], function (Require, $, Handlebars, templates, translate, tiles_configuration) {
 
     'use strict';
 
