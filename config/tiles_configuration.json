@@ -76,7 +76,41 @@
       "tile_title": "ghg_spatial",
       "tile_description": "ghg_spatial_description",
       "tile_button": "ghg_spatial_button",
-      "require": "FAOSTAT-UI-ANALYSIS-GHG-SPATIAL"
+      "require": "FAOSTAT-UI-ANALYSIS-GHG-SPATIAL",
+      "module_config": {
+         "ghg_spatial_browse": {
+            "id": "spatial_browse",
+            "section": "ghg",
+            "type": "module",
+            "img": "/data.jpg",
+            "label_code": "ghg_spatial_browse",
+            "require": "GEOBRICKS-UI-DISTRIBUTION",
+            "tile_title": "ghg_spatial_browse",
+            "tile_description": "ghg_spatial_browse_description",
+            "tile_button": "ghg_spatial_browse_button",
+            "module_config": {
+               "url_geoserver_wms": "http://fenix.fao.org/geoserver_ghg",
+               "url_d3s_metadata_resource": "http://fenix.fao.org/d3s_ghg/msd/resources/uid/{{UID}}",
+               "url_d3s_resources_find": "http://fenix.fao.org/d3s_ghg/msd/resources/find",
+               "url_d3s_resources_find_order_by_date_parameters": "order=meContent.seCoverage.coverageTime.from:desc&logic=StandardFilter&dsd=true&full=true",
+               "url_spatialquery_db_spatial": "//fenix.fao.org/geo/fenix/spatialquery/db/spatial/query/",
+               "url_spatialquery_db_spatial_bbox": "//fenix.fao.org/geo/fenix/spatialquery/db/spatial/bbox/layer/country/adm0_code/{{CODES}}",
+               "url_distribution_raster_spatial_query": "//fenix.fao.org/geo/fenix/distribution/raster/spatialquery",
+               "url_css2sld": "//fenixapps2.fao.org/geoservices/CSS2SLD"
+            }
+         },
+         "ghg_spatial_download": {
+            "id": "spatial_download",
+            "section": "ghg",
+            "type": "module",
+            "img": "/data.jpg",
+            "label_code": "ghg_spatial_download",
+            "tile_title": "ghg_spatial_download",
+            "tile_description": "ghg_spatial_download_description",
+            "tile_button": "ghg_spatial_download_button",
+            "require": "FAOSTAT-UI-ANALYSIS-GHG-SPATIAL-DOWNLOAD"
+         }
+      }
    },
    "ghg_spatial_download": {
       "id": "spatial_download",
