@@ -23,6 +23,7 @@ define({
     ghg_spatial_browse: 'Visualizar datos georreferenciados',
     ghg_spatial_browse_description: 'La herramienta permite a los usuarios acceder y examinar datos georreferenciados globales utilizados en la base de datos de Emisiones de FAOSTAT para estimar las emisiones de categorías específicas de la agricultura y el uso de la tierra. Los datos descargables a nivel nacional.',
     ghg_spatial_browse_button: 'Ir al módulo',
-    no_data_to_display: 'No hay datos para mostrar',
-    please_make_another_selection: 'Por favor haga otra selección'
+    ghg_spatial: 'Datos Georreferenciados',
+    ghg_spatial_description: 'La herramienta permite a los usuarios acceder y examinar datos georreferenciados globales utilizados en la base de datos de Emisiones de FAOSTAT para estimar las emisiones de categorías específicas de la agricultura y el uso de la tierra. Los datos descargables a nivel nacional.',
+
 });

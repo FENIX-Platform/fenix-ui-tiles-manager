@@ -25,7 +25,7 @@ define({
         ghg_spatial_browse_description: 'The tool allows users to access and examine global georeferenced data used to estimate emissions of specific agriculture and land use categories in the FAOSTAT Emissions database. The data are available for download at country level.',
         ghg_spatial_browse_button: 'Go to the Browse Georeferenced Data module',
         ghg_spatial: 'Georeferenced Data',
-        ghg_spatial_description: ''
+        ghg_spatial_description: 'The tool allows users to access and examine global georeferenced data used to estimate emissions of specific agriculture and land use categories in the FAOSTAT Emissions database. The data are available for download at country level.'
     },
     F : true,
     S : true

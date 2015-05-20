@@ -15,9 +15,7 @@
          "ghg_overview",
          "ghg_quality",
          "ghg_indicators",
-         "ghg_spatial",
-         "ghg_spatial_download",
-         "ghg_spatial_browse"
+         "ghg_spatial"
       ],
       "tile_title": "ghg_title",
       "tile_description": "ghg_description",
