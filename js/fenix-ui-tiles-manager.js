@@ -1,7 +1,7 @@
 define(['require',
         'jquery',
         'handlebars',
-        'text!fenix_ui_tiles_manager/html/templates.html',
+        'text!fenix_ui_tiles_manager/html/templates.hbs',
         'i18n!fenix_ui_tiles_manager/nls/translate',
         'text!fenix_ui_tiles_manager/config/tiles_configuration.json',
         'bootstrap',
